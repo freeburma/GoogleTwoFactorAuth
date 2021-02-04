@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "EnrollApp";
+}
+
+<h2>EnrollApp</h2>
+
+ <!-- 2Fa Verification -->
+<div>@ViewBag.Message</div>
+    
+<div>
+    <img src="@ViewBag.BarcodeImageUrl" style="width: 150px; height: 150px;" />
+</div>
+
+<div>
+    Manual Setup Code : @ViewBag.SetupCode
+</div>
+
+<div>
+    @using (Html.BeginForm("Verify2FA", "Home", FormMethod.Post))
+    {
+        <input type="text" name="passcode" />
+        <input type="submit" value="Verify" class="btn btn-info" />
+
+    }
+</div>
